@@ -9,9 +9,9 @@ Meme Website </title>
 <h1>A website!</h1>
 <p>{{user_id}}  --- {{message}}</p>
 
-<form action="/get-user/2">
+<form action="/get-user/{{fname}}">
     <label for="fname">First name:</label><br>
-    <input type="text" id="fname" name="fname" value="John"><br>
+    <input type="number" id="fname" name="fname" value="John"><br>
     <label for="lname">Last name:</label><br>
     <input type="text" id="lname" name="lname" value="Doe"><br><br>
     <input type="submit" value="Submit">
