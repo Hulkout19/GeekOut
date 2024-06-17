@@ -20,6 +20,23 @@ def get_user(user_id):
     return render_template("meme_index.html", user_id = user_id, message=testDict[user_id])
     #return jsonify(user_data), 200
 
+@app.route("/get-user/all/")
+def get_all_users():
+
+    for user_id in testDict:
+        user_data = {
+            "userID": user_id,
+            "message": testDict[user_id]
+        }
+
+        extra = request.args.get("extra")
+        if extra:
+            user_data["extra"] = extra
+
+        
+        return render_template("meme_index.html", user_id = user_id, message=testDict[user_id])
+        #return jsonify(user_data), 200
+
 @app.route("/create-message/<userid>", methods=['POST'])
 def create_message(userid):
     if(userid in testDict):
